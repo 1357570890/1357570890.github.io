@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.style.borderColor = 'rgba(59, 130, 246, 0.25)';
             formMessage.textContent = '正在发送您的消息，请稍候...';
 
-            fetch('https://formsubmit.co/ajax/1357570890@qq.com', {
+            fetch('https://formsubmit.co/ajax/haozhen.zhang@zut.edu.cn', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1163,7 +1163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ">>> 我的学术与技术标签：\n" +
         "    - 矩阵论考核成绩: 95分 | 随机过程: 89分 | 省级二等学业奖学金\n" +
         "    - 核心专业背景: C++ / Python / ROS / 3D LiDAR SLAM建图 / YOLO视觉检测\n" +
-        "    - 联系方式: 电话/微信 183-9101-5680 | 邮箱 1357570890@qq.com\n" +
+        "    - 联系方式: 电话/微信 183-9101-5680 | 邮箱 haozhen.zhang@zut.edu.cn\n" +
         "    - 期望城市: 西安 (寻求军工研究所/自动驾驶/机器人核心算法岗)\n" +
         "\n" +
         "如果您对我的底层数学或代码变现能力感兴趣，欢迎随时联系我！",
