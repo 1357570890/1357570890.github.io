@@ -1,207 +1,623 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张颢震 | 机器人与控制算法工程师 个人主页</title>
+    <meta name="description" content="张颢震的个人主页。专注于机器人控制、3D SLAM建图、启发式调度算法与边缘端具身智能开发。中原工学院控制理论与控制工程硕士。">
+    <meta name="keywords" content="张颢震, 机器人工程师, 控制算法, 3D SLAM, C++, ROS, 具身智能, 个人简历, PID控制, RRT路径规划">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+    <!-- Background Particles Canvas placeholder -->
+    <div id="particles-bg"></div>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/19/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-04-19T06:22:20.687Z" itemprop="datePublished">2023-04-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/04/19/hello-world/">Hello World</a>
-    </h1>
-  
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Haozhen<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">关于我</a></li>
+                <li><a href="#education" class="nav-link">教育背景</a></li>
+                <li><a href="#skills" class="nav-link">专业技能</a></li>
+                <li><a href="#awards" class="nav-link">荣誉奖项</a></li>
+                <li><a href="#projects" class="nav-link">项目经历</a></li>
+                <li><a href="#lab" class="nav-link">算法实验室</a></li>
+                <li><a href="#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="badge-container">
+                <span class="hero-badge">寻求 机器人 / 控制算法 / 具身智能 研发岗位</span>
+            </div>
+            <h1 class="hero-title">张颢震</h1>
+            <h2 class="hero-subtitle">机器人与控制算法工程师</h2>
+            <p class="hero-description">
+                专注于机器人操作系统(ROS/ROS2)、三维激光SLAM建图、多目标启发式算法及边缘侧具身智能部署。
+                拥有扎实的数学建模与底层C++代码重构优化功底，致力于打通具身智能“感知-决策-执行”全链路。
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">浏览工程项目</a>
+                <a href="#lab" class="btn btn-secondary btn-lab">
+                    <span class="pulse-dot"></span>算法在线实验室
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </div>
+    </section>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">关于我</h2>
+            <div class="section-divider"></div>
+            <div class="about-grid">
+                <div class="about-info">
+                    <h3 class="about-heading">自我总结</h3>
+                    <p class="about-text">
+                        我叫张颢震，是一名主攻机器人控制、3D SLAM 与优化算法的研发工程师。目前在读控制理论与控制工程硕士，具备扎实的数学功底（硕士期间《矩阵论》<strong>95分</strong>）以及硬核的工程变现能力。
+                    </p>
+                    <p class="about-text">
+                        在工业界，我曾于西北工业大学科技成果转化企业（海砥装备）参与特种无人车与无人机的三维雷达建图与自主导航算法研发；在学术与竞赛上，我曾获研究生数学建模<strong>全国二等奖/三等奖</strong>、研电赛<strong>省级一等奖</strong>、人工智能创新大赛<strong>全国三等奖</strong>等，在跨学科工程研发中常担任核心代码攻关角色。
+                    </p>
+                    <div class="personal-details">
+                        <div class="detail-item"><span class="detail-label">期望城市：</span><span class="detail-value">西安</span></div>
+                        <div class="detail-item"><span class="detail-label">专业方向：</span><span class="detail-value">机器人工程 / 智能控制</span></div>
+                        <div class="detail-item"><span class="detail-label">电子邮箱：</span><span class="detail-value"><a href="mailto:1357570890@qq.com">1357570890@qq.com</a></span></div>
+                        <div class="detail-item"><span class="detail-label">GitHub：</span><span class="detail-value"><a href="https://github.com/1357570890" target="_blank">1357570890</a></span></div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h4 class="stat-num">4+</h4>
+                        <p class="stat-desc">核心研发项目</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4 class="stat-num">5+</h4>
+                        <p class="stat-desc">省部级及以上奖项</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4 class="stat-num">95</h4>
+                        <p class="stat-desc">《矩阵论》高分基本功</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4 class="stat-num">ROS</h4>
+                        <p class="stat-desc">全栈开发与调优</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+    <!-- Education Section -->
+    <section id="education" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">教育背景</h2>
+            <div class="section-divider"></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024.09 - 2027.06 (预计毕业)</div>
+                    <div class="timeline-content">
+                        <div class="education-header">
+                            <h3 class="school-name">中原工学院</h3>
+                            <span class="degree">控制理论与控制工程 (硕士)</span>
+                        </div>
+                        <p class="edu-details"><strong>研究方向：</strong>多目标优化算法、群智能优化、机器人路径规划</p>
+                        <p class="edu-details"><strong>核心课程：</strong>矩阵论（95分）、随机过程（89分）、计算智能（87分）、神经网络及其应用（87分）、现代控制理论、最优控制</p>
+                        <p class="edu-details"><strong>学术表现：</strong>绩点优异，荣获 2024-2025 学年<strong>省级二等奖学金</strong></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020.09 - 2024.06</div>
+                    <div class="timeline-content">
+                        <div class="education-header">
+                            <h3 class="school-name">西安工程大学</h3>
+                            <span class="degree">机器人工程 (学士)</span>
+                        </div>
+                        <p class="edu-details"><strong>专业背景：</strong>机器人控制、嵌入式系统开发、运动学与动力学建模、传感器总线技术</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">专业技能</h2>
+            <div class="section-divider"></div>
+            <div class="skills-container">
+                <!-- Skill Category 1 -->
+                <div class="skill-category-card">
+                    <h3 class="category-title">💻 编程与底层开发</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C/C++ (面向对象, STL, 时空复杂度优化)</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python (数据分析, AI模型训练, 运筹优化)</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java / Android App开发 / HTML / CSS</span>
+                                <span class="skill-percentage">熟练</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+                        </div>
+                    </div>
+                </div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <!-- Skill Category 2 -->
+                <div class="skill-category-card">
+                    <h3 class="category-title">🤖 机器人与激光感知</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ROS / ROS2 机器人操作系统开发</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">3D 激光雷达标定与 SLAM 建图 (LOAM/LIO-SAM)</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Wi-Fi CSI 无线感知数据滤波与处理</span>
+                                <span class="skill-percentage">熟练</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                        </div>
+                    </div>
+                </div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/19/hello-world/" data-id="clgnbhiw400009sbqc5v20194" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
+                <!-- Skill Category 3 -->
+                <div class="skill-category-card">
+                    <h3 class="category-title">🧠 人工智能与机器视觉</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">YOLO 核心目标检测与边缘端轻量部署</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">OpenCV 图像处理与 MediaPipe 肢体姿态追踪</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">边缘端端侧模型部署推理 (ESP32/香橙派/香橙派香橙派)</span>
+                                <span class="skill-percentage">熟练</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="skill-category-card">
+                    <h3 class="category-title">📊 算法重构与运筹优化</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">运筹学优化建模与多维度调度优化</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">启发式/群智能调度算法重构 (NSGA-II)</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">复杂结构化计算图依赖拓扑解析</span>
+                                <span class="skill-percentage">精通</span>
+                            </div>
+                            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">荣誉奖项</h2>
+            <div class="section-divider"></div>
+            <div class="awards-table-container">
+                <table class="awards-table">
+                    <thead>
+                        <tr>
+                            <th>竞赛/成果名称</th>
+                            <th>荣获奖项</th>
+                            <th>时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="award-gold">
+                            <td class="award-name"><span class="badge badge-gold">建模</span> 第二十二届中国研究生数学建模竞赛</td>
+                            <td class="award-rank">全国二等奖</td>
+                            <td class="award-date">2025.12</td>
+                        </tr>
+                        <tr class="award-gold">
+                            <td class="award-name"><span class="badge badge-gold">电子</span> 第二十届中国研究生电子设计竞赛</td>
+                            <td class="award-rank">华中分赛区团队一等奖 (省级一等奖)</td>
+                            <td class="award-date">2025.07</td>
+                        </tr>
+                        <tr class="award-silver">
+                            <td class="award-name"><span class="badge badge-silver">AI</span> 第七届中国研究生人工智能创新大赛</td>
+                            <td class="award-rank">全国三等奖</td>
+                            <td class="award-date">2025.10</td>
+                        </tr>
+                        <tr class="award-silver">
+                            <td class="award-name"><span class="badge badge-silver">建模</span> 第二十一届中国研究生数学建模竞赛</td>
+                            <td class="award-rank">全国三等奖</td>
+                            <td class="award-date">2024.12</td>
+                        </tr>
+                        <tr class="award-normal">
+                            <td class="award-name"><span class="badge badge-normal">学业</span> 2024-2025 学年研究生奖学金</td>
+                            <td class="award-rank">省级二等奖学金</td>
+                            <td class="award-date">2025</td>
+                        </tr>
+                        <tr class="award-normal">
+                            <td class="award-name"><span class="badge badge-normal">电子</span> “数智中原”河南省大学生电子设计竞赛</td>
+                            <td class="award-rank">省级二等奖</td>
+                            <td class="award-date">2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">项目与工程实践经验</h2>
+            <div class="section-divider"></div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-tag">工作经历</span>
+                        <span class="project-date">2024.04 - 2024.07</span>
+                    </div>
+                    <h3 class="project-title">特种无人车与无人机自主导航及三维雷达建图系统研发</h3>
+                    <h4 class="project-company">陕西海砥装备科技有限公司 (西工大转化企业)</h4>
+                    <p class="project-desc">针对特种无人平台在复杂空地一体未知环境下的建图与导航需求，在底盘控制链路设计、雷达软硬件标定与 3D SLAM 建图算法部署方面完成了核心工业级 C++ 代码开发。</p>
+                    <div class="project-tech-tags">
+                        <span>C++</span>
+                        <span>ROS</span>
+                        <span>3D LiDAR</span>
+                        <span>LOAM / LIO-SAM</span>
+                        <span>Linux</span>
+                    </div>
+                    <button class="project-toggle-btn">展开详情</button>
+                    <div class="project-details">
+                        <ul>
+                            <li><strong>底层系统框架</strong>：基于 C++ 编写高性能 ROS 节点，实现无人平台底层数据（IMU、里程计、雷达点云）高频低延迟订阅、解析与多线程优化。</li>
+                            <li><strong>三维雷达点云建图</strong>：负责雷达与 IMU 软硬件标定与外参求解；部署调优 LIO-SAM 建图算法，针对颠簸带来的畸变，引入惯导融合算法进行运动畸变补偿。</li>
+                            <li><strong>项目成果</strong>：在实车/机上实现厘米级高精度三维点云建图，解决了动态响应滞后及多径干扰问题，展现极高工业稳定性。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-tag">研电赛一等奖 / AI大赛全国三等奖</span>
+                        <span class="project-date">2025.07 - 2025.10</span>
+                    </div>
+                    <h3 class="project-title">“感语智契”多模态驱动智能陪伴机器狗研发</h3>
+                    <h4 class="project-company">机器人研发项目 (具身智能四足机器人)</h4>
+                    <p class="project-desc">一款集成了人工智能大模型语义理解、边缘侧机器视觉高帧率多目标检测、以及全栈移动端低延迟图传的多模态交互陪伴型四足机器人系统。</p>
+                    <div class="project-tech-tags">
+                        <span>Python</span>
+                        <span>Java (Android)</span>
+                        <span>讯飞星火大模型API</span>
+                        <span>YOLOfast</span>
+                        <span>OpenCV</span>
+                        <span>MediaPipe</span>
+                    </div>
+                    <button class="project-toggle-btn">展开详情</button>
+                    <div class="project-details">
+                        <ul>
+                            <li><strong>大模型交互</strong>：基于 Python 接入大模型 API，打通 ASR 语音输入 - 大模型语义理解 - 结构化 JSON 指令提取 - TTS 语音合成反馈的闭环，赋予狗智能决策能力。</li>
+                            <li><strong>边缘视觉部署</strong>：部署 YOLOfast 及 OpenCV，配合 MediaPipe 手势与姿态跟踪，高帧率实现手势追踪、人脸识别与足球随动等算法。</li>
+                            <li><strong>全栈系统集成</strong>：使用 Java 编写 Android 客户端 App，基于 TCP/UDP 实现前端控制、数据调控及视频流超低延迟图传。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-tag">华为杯研赛全国二等奖</span>
+                        <span class="project-date">2025</span>
+                    </div>
+                    <h3 class="project-title">通用神经网络处理器核内算子存储调度算法研究</h3>
+                    <h4 class="project-company">通用加速器 (NPU) 核内算子调度优化</h4>
+                    <p class="project-desc">针对深度学习加速芯片核内算子在处理超大规模卷积、FlashAttention 时面临的“内存墙”瓶颈，应用拓扑分析与启发式运筹学理论设计片上高效算子调度管理方案。</p>
+                    <div class="project-tech-tags">
+                        <span>Python</span>
+                        <span>运筹优化</span>
+                        <span>启发式算法</span>
+                        <span>计算图拓扑排序</span>
+                        <span>GUI (PyQt)</span>
+                    </div>
+                    <button class="project-toggle-btn">展开详情</button>
+                    <div class="project-details">
+                        <ul>
+                            <li><strong>计算图拓扑分析</strong>：使用 Python 编写脚本解析复杂 JSON 格式计算图，进行拓扑排序并建立数据块依赖生命周期库。</li>
+                            <li><strong>启发式调度算法</strong>：重构并实现了优先级调度算法（Priority Explorer）与数据溢出（Spill）成本动态优化，极大降低高频数据在片上缓存与外部存储间的换入换出开销。</li>
+                            <li><strong>可视化工具</strong>：基于 PyQt 与 Matplotlib 独立构建交互式调度验证 GUI 界面，直观展现内存碎片率、Cache Miss 及延迟指标。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-tag">电赛省级奖项 / 适老化应用</span>
+                        <span class="project-date">2026</span>
+                    </div>
+                    <h3 class="project-title">“银发守望”基于 Wi-Fi 信道状态感知与边缘计算的老人实时监护系统</h3>
+                    <h4 class="project-company">Wi-Fi CSI 无线电感知与边缘计算</h4>
+                    <p class="project-desc">旨在打造非接触、无需佩戴设备的养老监护系统。解析空间 Wi-Fi 信道状态信息 (CSI)，结合边缘端 AI 分类算法对独居老人跌倒等姿态进行高精度实时监护预警。</p>
+                    <div class="project-tech-tags">
+                        <span>ESP32 嵌入式</span>
+                        <span>Wi-Fi CSI</span>
+                        <span>AI分类模型</span>
+                        <span>全栈 (Web + App + Server)</span>
+                    </div>
+                    <button class="project-toggle-btn">展开详情</button>
+                    <div class="project-details">
+                        <ul>
+                            <li><strong>底层感知与边缘采集</strong>：基于 ESP32 开发 CSI 射频数据发送与接收节点，高频采集时序信道状态矩阵并进行降噪与边缘预处理。</li>
+                            <li><strong>跌倒分类 AI 算法</strong>：对高维时序 CSI 幅度/相位特征进行提取，训练并在香橙派/边缘端部署姿态行为分类模型，实现高敏感度跌倒事件判断。</li>
+                            <li><strong>云端/跨端协同生态</strong>：搭建 Windows Server 作为中央数据库后端，开发 Web 监护面板大屏与 Android 报警 App，实现“感知-边缘分类-云端推送-多端推送”闭环。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lab Section -->
+    <section id="lab" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">🔬 算法与控制系统在线实验室</h2>
+            <p class="section-subtitle-desc text-center">这是一个完全由原生 JavaScript 实现的算法交互仿真，用以直观展示我的数学、运动学建模与控制理论算法实现功底。</p>
+            <div class="section-divider"></div>
+
+            <div class="lab-container">
+                <div class="lab-tabs">
+                    <button class="lab-tab active" data-tab="rrt-tab">RRT* 路径规划器</button>
+                    <button class="lab-tab" data-tab="pid-tab">PID 闭环稳定控制</button>
+                    <button class="lab-tab" data-tab="lidar-tab">3D 矩阵点云投影</button>
+                </div>
+
+                <div class="lab-content">
+                    <!-- RRT Tab -->
+                    <div class="lab-panel active" id="rrt-tab">
+                        <div class="panel-grid">
+                            <div class="canvas-wrapper">
+                                <canvas id="rrt-canvas" width="550" height="350"></canvas>
+                            </div>
+                            <div class="panel-controls">
+                                <h3>RRT* (快速探索随机树) 机器人路径规划</h3>
+                                <p class="panel-explanation">
+                                    展示机器狗在复杂网格地图中的障碍规避算法。在左侧画布中，您可以<strong>直接点击或拖拽鼠标绘制黑色障碍物墙壁</strong>，然后点击“运行规划”。
+                                </p>
+                                <p class="panel-explanation">
+                                    算法将从起点（绿色）出发，向随机方向快速建立探索树，并在检测到连通终点（红色）后，通过 <strong>Rewire 算子</strong>进行渐近线段路径优化，找到最优规避路线。
+                                </p>
+                                <div class="control-buttons">
+                                    <button id="rrt-start" class="btn btn-primary">运行规划</button>
+                                    <button id="rrt-clear-ob" class="btn btn-secondary">清空障碍</button>
+                                    <button id="rrt-reset" class="btn btn-secondary">重置地图</button>
+                                </div>
+                                <div class="simulation-status">
+                                    <span class="status-label">探索状态：</span><span id="rrt-status" class="status-value status-ready">待就绪</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PID Tab -->
+                    <div class="lab-panel" id="pid-tab">
+                        <div class="panel-grid">
+                            <div class="canvas-wrapper">
+                                <canvas id="pid-canvas" width="550" height="350"></canvas>
+                            </div>
+                            <div class="panel-controls">
+                                <h3>无人机一维高度 PID 稳定控制器</h3>
+                                <p class="panel-explanation">
+                                    模拟无人机通过高度传感器进行姿态控制。<strong>红线</strong>代表期望目标高度（您可以在画布上<strong>任意点击直接修改目标高度</strong>）。
+                                </p>
+                                <p class="panel-explanation">
+                                    调节滑块，实时观察不同的 PID 增益系数如何影响无人机的超调量、收敛时间及震荡衰减。
+                                </p>
+                                
+                                <div class="sliders">
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">Proportional 比例 Kp (减小静差)</span>
+                                            <span id="kp-val" class="slider-value">0.35</span>
+                                        </div>
+                                        <input type="range" id="pid-kp" min="0.05" max="1.5" step="0.05" value="0.35">
+                                    </div>
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">Integral 积分 Ki (消除稳态误差)</span>
+                                            <span id="ki-val" class="slider-value">0.005</span>
+                                        </div>
+                                        <input type="range" id="pid-ki" min="0.0" max="0.05" step="0.001" value="0.005">
+                                    </div>
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">Derivative 微分 Kd (抑制震荡与超调)</span>
+                                            <span id="kd-val" class="slider-value">0.80</span>
+                                        </div>
+                                        <input type="range" id="pid-kd" min="0.1" max="3.0" step="0.05" value="0.80">
+                                    </div>
+                                </div>
+                                
+                                <div class="control-buttons">
+                                    <button id="pid-perturb" class="btn btn-primary">施加瞬间冲击力</button>
+                                    <button id="pid-preset-optimal" class="btn btn-secondary">恢复推荐参数</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LIDAR Tab -->
+                    <div class="lab-panel" id="lidar-tab">
+                        <div class="panel-grid">
+                            <div class="canvas-wrapper">
+                                <canvas id="lidar-canvas" width="550" height="350"></canvas>
+                            </div>
+                            <div class="panel-controls">
+                                <h3>3D 激光雷达点云仿射投影与矩阵变换</h3>
+                                <p class="panel-explanation">
+                                    <strong>《矩阵论》95分硬核展示：</strong>无需 Three.js 库，本模块基于纯原生 JavaScript 算法实现三维坐标点集（正方体与四足机器狗骨架）向二维屏幕投影的计算。
+                                </p>
+                                <p class="panel-explanation">
+                                    实现了三维空间欧拉角旋转矩阵的运算、视口仿射变换投影（3D Projection）、消隐渲染以及基于深度 $z$ 的点大小与透明度衰减渲染（仿激光雷达反射强度效果）。
+                                </p>
+                                <p class="panel-explanation">
+                                    请<strong>在画布上按住鼠标左键并拖拽</strong>，即可实时计算相机观察旋转矩阵，实现点云的多角度旋转互动。
+                                </p>
+                                <div class="control-buttons">
+                                    <button id="lidar-reset" class="btn btn-secondary">重置透视视角</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">联系方式</h2>
+            <div class="section-divider"></div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info-card">
+                    <h3>寻找西安的算法与机器人研发机会</h3>
+                    <p>我具备极强的抗压与攻坚能力，非常期待能加入硬核军工院所、机器人/四足狗研发企业或自动驾驶团队中，通过扎实的算法与代码实现在西安落地！</p>
+                    
+                    <div class="contact-details-list">
+                        <div class="contact-detail-item">
+                            <span class="icon">📞</span>
+                            <div>
+                                <h4>电话 / 微信</h4>
+                                <p>183-9101-5680</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <span class="icon">✉️</span>
+                            <div>
+                                <h4>电子邮箱</h4>
+                                <p><a href="mailto:1357570890@qq.com">1357570890@qq.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <h4>期望城市</h4>
+                                <p>西安 (或全国联调出差)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3>向我发送消息</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" required placeholder="例如：某研究院 HR">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">联系邮箱 / 电话</label>
+                            <input type="text" id="email" required placeholder="例如：hr@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">消息内容</label>
+                            <textarea id="message" required rows="4" placeholder="写下您想对我说的话..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">发送消息</button>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 张颢震. 保留所有权利. 基于现代 HTML/CSS/JS 全手工重构部署.</p>
+            <p class="footer-links">
+                <a href="https://github.com/1357570890" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+                <a href="#hero">回到顶部</a>
+            </p>
+        </div>
     </footer>
-  </div>
-  
-</article>
 
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/04/19/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
