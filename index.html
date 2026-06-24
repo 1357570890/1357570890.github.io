@@ -29,6 +29,7 @@
                 <li><a href="#skills" class="nav-link">专业技能</a></li>
                 <li><a href="#awards" class="nav-link">荣誉奖项</a></li>
                 <li><a href="#projects" class="nav-link">项目经历</a></li>
+                <li><a href="#online-resume" class="nav-link">在线简历</a></li>
                 <li><a href="#lab" class="nav-link">算法实验室</a></li>
                 <li><a href="#contact" class="nav-link">联系方式</a></li>
             </ul>
@@ -323,156 +324,336 @@
             <h2 class="section-title text-center">项目与工程实践经验</h2>
             <div class="section-divider"></div>
             
-            <div class="projects-grid">
+                        <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">工作经历</span>
-                        <span class="project-date">2024.04 - 2024.07</span>
+                    <div class="project-image-wrapper">
+                        <img src="assets/rviz_lidar_mapping.png" alt="特种无人车三维雷达建图" class="project-image">
                     </div>
-                    <h3 class="project-title">特种无人车与无人机自主导航及三维雷达建图系统研发</h3>
-                    <h4 class="project-company">陕西海砥装备科技有限公司 (西工大转化企业)</h4>
-                    <p class="project-desc">针对特种无人平台在复杂空地一体未知环境下的建图与导航需求，在底盘控制链路设计、雷达软硬件标定与 3D SLAM 建图算法部署方面完成了核心工业级 C++ 代码开发。</p>
-                    <div class="project-tech-tags">
-                        <span>C++</span>
-                        <span>ROS</span>
-                        <span>3D LiDAR</span>
-                        <span>LOAM / LIO-SAM</span>
-                        <span>Linux</span>
-                    </div>
-                    <button class="project-toggle-btn">展开详情</button>
-                    <div class="project-details">
-                        <ul>
-                            <li><strong>底层系统框架</strong>：基于 C++ 编写高性能 ROS 节点，实现无人平台底层数据（IMU、里程计、雷达点云）高频低延迟订阅、解析与多线程优化。</li>
-                            <li><strong>三维雷达点云建图</strong>：负责雷达与 IMU 软硬件标定与外参求解；部署调优 LIO-SAM 建图算法，针对颠簸带来的畸变，引入惯导融合算法进行运动畸变补偿。</li>
-                            <li><strong>项目成果</strong>：在实车/机上实现厘米级高精度三维点云建图，解决了动态响应滞后及多径干扰问题，展现极高工业稳定性。</li>
-                        </ul>
+                    <div class="project-card-content">
+                        <div class="project-header">
+                            <span class="project-tag">工作经历</span>
+                            <span class="project-date">2024.04 - 2024.07</span>
+                        </div>
+                        <h3 class="project-title">特种无人车与无人机自主导航及三维雷达建图系统研发</h3>
+                        <h4 class="project-company">陕西海砥装备科技有限公司 (西工大转化企业)</h4>
+                        <p class="project-desc">针对特种无人平台在复杂空地一体未知环境下的建图与导航需求，在底盘控制链路设计、雷达软硬件标定与 3D SLAM 建图算法部署方面完成了核心工业级 C++ 代码开发。</p>
+                        <div class="project-tech-tags">
+                            <span>C++</span>
+                            <span>ROS</span>
+                            <span>3D LiDAR</span>
+                            <span>LOAM / LIO-SAM</span>
+                            <span>Linux</span>
+                        </div>
+                        <button class="project-toggle-btn">展开详情</button>
+                        <div class="project-details">
+                            <ul>
+                                <li><strong>底层系统框架</strong>：基于 C++ 编写高性能 ROS 节点，实现无人平台底层数据（IMU、里程计、雷达点云）高频低延迟订阅、解析与多线程优化。</li>
+                                <li><strong>三维雷达点云建图</strong>：负责雷达与 IMU 软硬件标定与外参求解；部署调优 LIO-SAM 建图算法，针对颠簸带来的畸变，引入惯导融合算法进行运动畸变补偿。</li>
+                                <li><strong>项目成果</strong>：在实车/机上实现厘米级高精度三维点云建图，解决了动态响应滞后及多径干扰问题，展现极高工业稳定性。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">研电赛一等奖 / AI大赛全国三等奖</span>
-                        <span class="project-date">2025.07 - 2025.10</span>
+                    <div class="project-image-wrapper">
+                        <img src="assets/robot_dog_real.jpg" alt="感语智契智能陪伴机器狗" class="project-image">
                     </div>
-                    <h3 class="project-title">“感语智契”多模态驱动智能陪伴机器狗研发</h3>
-                    <h4 class="project-company">机器人研发项目 (具身智能四足机器人)</h4>
-                    <p class="project-desc">一款集成了人工智能大模型语义理解、边缘侧机器视觉高帧率多目标检测、以及全栈移动端低延迟图传的多模态交互陪伴型四足机器人系统。</p>
-                    <div class="project-tech-tags">
-                        <span>Python</span>
-                        <span>Java (Android)</span>
-                        <span>讯飞星火大模型API</span>
-                        <span>YOLOfast</span>
-                        <span>OpenCV</span>
-                        <span>MediaPipe</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="project-toggle-btn">展开详情</button>
-                        <a href="https://github.com/1357570890/Multimodal-Companion-Quadruped" target="_blank" class="project-github-btn">
-                            <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                            GitHub 源码
-                        </a>
-                    </div>
-                    <div class="project-details">
-                        <ul>
-                            <li><strong>大模型交互</strong>：基于 Python 接入大模型 API，打通 ASR 语音输入 - 大模型语义理解 - 结构化 JSON 指令提取 - TTS 语音合成反馈的闭环，赋予狗智能决策能力。</li>
-                            <li><strong>边缘视觉部署</strong>：部署 YOLOfast 及 OpenCV，配合 MediaPipe 手势与姿态跟踪，高帧率实现手势追踪、人脸识别与足球随动等算法。</li>
-                            <li><strong>全栈系统集成</strong>：使用 Java 编写 Android 客户端 App，基于 TCP/UDP 实现前端控制、数据调控及视频流超低延迟图传。</li>
-                        </ul>
+                    <div class="project-card-content">
+                        <div class="project-header">
+                            <span class="project-tag">研电赛一等奖 / AI大赛全国三等奖</span>
+                            <span class="project-date">2025.07 - 2025.10</span>
+                        </div>
+                        <h3 class="project-title">“感语智契”多模态驱动智能陪伴机器狗研发</h3>
+                        <h4 class="project-company">机器人研发项目 (具身智能四足机器人)</h4>
+                        <p class="project-desc">一款集成了人工智能大模型语义理解、边缘侧机器视觉高帧率多目标检测、以及全栈移动端低延迟图传的多模态交互陪伴型四足机器人系统。</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span>
+                            <span>Java (Android)</span>
+                            <span>讯飞星火大模型API</span>
+                            <span>YOLOfast</span>
+                            <span>OpenCV</span>
+                            <span>MediaPipe</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-toggle-btn">展开详情</button>
+                            <a href="https://github.com/1357570890/Multimodal-Companion-Quadruped" target="_blank" class="project-github-btn">
+                                <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                                GitHub 源码
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <ul>
+                                <li><strong>大模型交互</strong>：基于 Python 接入大模型 API，打通 ASR 语音输入 - 大模型语义理解 - 结构化 JSON 指令提取 - TTS 语音合成反馈的闭环，赋予狗智能决策能力。</li>
+                                <li><strong>边缘视觉部署</strong>：部署 YOLOfast 及 OpenCV，配合 MediaPipe 手势与姿态跟踪，高帧率实现手势追踪、人脸识别与足球随动等算法。</li>
+                                <li><strong>全栈系统集成</strong>：使用 Java 编写 Android 客户端 App，基于 TCP/UDP 实现前端控制、数据调控及视频流超低延迟图传。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">华为杯研赛全国二等奖</span>
-                        <span class="project-date">2025</span>
+                    <div class="project-image-wrapper">
+                        <img src="assets/memory_usage_analysis.png" alt="NPU核内算子调度优化" class="project-image">
                     </div>
-                    <h3 class="project-title">通用神经网络处理器核内算子存储调度算法研究</h3>
-                    <h4 class="project-company">通用加速器 (NPU) 核内算子调度优化</h4>
-                    <p class="project-desc">针对深度学习加速芯片核内算子在处理超大规模卷积、FlashAttention 时面临的“内存墙”瓶颈，应用拓扑分析与启发式运筹学理论设计片上高效算子调度管理方案。</p>
-                    <div class="project-tech-tags">
-                        <span>Python</span>
-                        <span>运筹优化</span>
-                        <span>启发式算法</span>
-                        <span>计算图拓扑排序</span>
-                        <span>GUI (PyQt)</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="project-toggle-btn">展开详情</button>
-                        <a href="https://github.com/1357570890/NPU-Operator-Scheduler" target="_blank" class="project-github-btn">
-                            <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                            GitHub 源码
-                        </a>
-                    </div>
-                    <div class="project-details">
-                        <ul>
-                            <li><strong>计算图拓扑分析</strong>：使用 Python 编写脚本解析复杂 JSON 格式计算图，进行拓扑排序并建立数据块依赖生命周期库。</li>
-                            <li><strong>启发式调度算法</strong>：重构并实现了优先级调度算法（Priority Explorer）与数据溢出（Spill）成本动态优化，极大降低高频数据在片上缓存与外部存储间的换入换出开销。</li>
-                            <li><strong>可视化工具</strong>：基于 PyQt 与 Matplotlib 独立构建交互式调度验证 GUI 界面，直观展现内存碎片率、Cache Miss 及延迟指标。</li>
-                        </ul>
+                    <div class="project-card-content">
+                        <div class="project-header">
+                            <span class="project-tag">华为杯研赛全国二等奖</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <h3 class="project-title">通用神经网络处理器核内算子存储调度算法研究</h3>
+                        <h4 class="project-company">通用加速器 (NPU) 核内算子调度优化</h4>
+                        <p class="project-desc">针对深度学习加速芯片核内算子在处理超大规模卷积、FlashAttention 时面临的“内存墙”瓶颈，应用拓扑分析与启发式运筹学理论设计片上高效算子调度管理方案。</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span>
+                            <span>运筹优化</span>
+                            <span>启发式算法</span>
+                            <span>计算图拓扑排序</span>
+                            <span>GUI (PyQt)</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-toggle-btn">展开详情</button>
+                            <a href="https://github.com/1357570890/NPU-Operator-Scheduler" target="_blank" class="project-github-btn">
+                                <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                                GitHub 源码
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <ul>
+                                <li><strong>计算图拓扑分析</strong>：使用 Python 编写脚本解析复杂 JSON 格式计算图，进行拓扑排序并建立数据块依赖生命周期库。</li>
+                                <li><strong>启发式调度算法</strong>：重构并实现了优先级调度算法（Priority Explorer）与数据溢出（Spill）成本动态优化，极大降低高频数据在片上缓存与外部存储间的换入换出开销。</li>
+                                <li><strong>可视化工具</strong>：基于 PyQt 与 Matplotlib 独立构建交互式调度验证 GUI 界面，直观展现内存碎片率、Cache Miss 及延迟指标。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">电赛省级奖项 / 适老化应用</span>
-                        <span class="project-date">2026</span>
+                    <div class="project-image-wrapper">
+                        <img src="assets/wifi_csi_real.png" alt="Wi-Fi信道状态跌倒实时监护" class="project-image">
                     </div>
-                    <h3 class="project-title">“银发守望”基于 Wi-Fi 信道状态感知与边缘计算的老人实时监护系统</h3>
-                    <h4 class="project-company">Wi-Fi CSI 无线电感知与边缘计算</h4>
-                    <p class="project-desc">旨在打造非接触、无需佩戴设备的养老监护系统。解析空间 Wi-Fi 信道状态信息 (CSI)，结合边缘端 AI 分类算法对独居老人跌倒等姿态进行高精度实时监护预警。</p>
-                    <div class="project-tech-tags">
-                        <span>ESP32 嵌入式</span>
-                        <span>Wi-Fi CSI</span>
-                        <span>AI分类模型</span>
-                        <span>全栈 (Web + App + Server)</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="project-toggle-btn">展开详情</button>
-                        <a href="https://github.com/1357570890/WiFi-CSI-Fall-Detection" target="_blank" class="project-github-btn">
-                            <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                            GitHub 源码
-                        </a>
-                    </div>
-                    <div class="project-details">
-                        <ul>
-                            <li><strong>底层感知与边缘采集</strong>：基于 ESP32 开发 CSI 射频数据发送与接收节点，高频采集时序信道状态矩阵并进行降噪与边缘预处理。</li>
-                            <li><strong>跌倒分类 AI 算法</strong>：对高维时序 CSI 幅度/相位特征进行提取，训练并在香橙派/边缘端部署姿态行为分类模型，实现高敏感度跌倒事件判断。</li>
-                            <li><strong>云端/跨端协同生态</strong>：搭建 Windows Server 作为中央数据库后端，开发 Web 监护面板大屏与 Android 报警 App，实现“感知-边缘分类-云端推送-多端推送”闭环。</li>
-                        </ul>
+                    <div class="project-card-content">
+                        <div class="project-header">
+                            <span class="project-tag">电赛省级奖项 / 适老化应用</span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h3 class="project-title">“银发守望”基于 Wi-Fi 信道状态感知与边缘计算的老人实时监护系统</h3>
+                        <h4 class="project-company">Wi-Fi CSI 无线电感知与边缘计算</h4>
+                        <p class="project-desc">旨在打造非接触、无需佩戴设备的养老监护系统。解析空间 Wi-Fi 信道状态信息 (CSI)，结合边缘端 AI 分类算法对独居老人跌倒等姿态进行高精度实时监护预警。</p>
+                        <div class="project-tech-tags">
+                            <span>ESP32 嵌入式</span>
+                            <span>Wi-Fi CSI</span>
+                            <span>AI分类模型</span>
+                            <span>全栈 (Web + App + Server)</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-toggle-btn">展开详情</button>
+                            <a href="https://github.com/1357570890/WiFi-CSI-Fall-Detection" target="_blank" class="project-github-btn">
+                                <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                                GitHub 源码
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <ul>
+                                <li><strong>底层感知与边缘采集</strong>：基于 ESP32 开发 CSI 射频 data 发送与接收节点，高频采集时序信道状态矩阵并进行降噪与边缘预处理。</li>
+                                <li><strong>跌倒分类 AI 算法</strong>：对高维时序 CSI 幅度/相位特征进行提取，训练并在香橙派/边缘端部署姿态行为分类模型，实现高敏感度跌倒事件判断。</li>
+                                <li><strong>云端/跨端协同生态</strong>：搭建 Windows Server 作为中央数据库后端，开发 Web 监护面板大屏与 Android 报警 App，实现“感知-边缘分类-云端推送-多端推送”闭环。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
                 <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-tag">姿态与步态分析 / 算法研发</span>
-                        <span class="project-date">2025.09 - 2025.11</span>
+                    <div class="project-image-wrapper">
+                        <img src="assets/gait_calibrate.png" alt="人体运动姿态与足底压力CNN分类" class="project-image">
                     </div>
-                    <h3 class="project-title">人体运动姿态解算与足底压力 CNN 分类系统</h3>
-                    <h4 class="project-company">科研与控制算法项目 (人体运动评估系统)</h4>
-                    <p class="project-desc">一个基于九轴 IMU 惯性测量单元与二维足底压力分布数据的综合运动分析与特征评估系统。实现人体下肢关节角度时序计算，并通过时空神经网络对异常足型和压力分布特征进行精准分类。</p>
-                    <div class="project-tech-tags">
-                        <span>Python</span>
-                        <span>PyTorch (CNN)</span>
-                        <span>信号处理 (低通滤波)</span>
-                        <span>姿态估计 (Mahony AHRS)</span>
+                    <div class="project-card-content">
+                        <div class="project-header">
+                            <span class="project-tag">姿态与步态分析 / 算法研发</span>
+                            <span class="project-date">2025.09 - 2025.11</span>
+                        </div>
+                        <h3 class="project-title">人体运动姿态解算与足底压力 CNN 分类系统</h3>
+                        <h4 class="project-company">科研与控制算法项目 (人体运动评估系统)</h4>
+                        <p class="project-desc">一个基于九轴 IMU 惯性测量单元与二维足底压力分布数据的综合运动分析与特征评估系统。实现人体下肢关节角度时序计算，并通过时空神经网络对异常足型和压力分布特征进行精准分类。</p>
+                        <div class="project-tech-tags">
+                            <span>Python</span>
+                            <span>PyTorch (CNN)</span>
+                            <span>信号处理 (低通滤波)</span>
+                            <span>姿态估计 (Mahony AHRS)</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-toggle-btn">展开详情</button>
+                            <a href="https://github.com/1357570890/Comprehensive-Gait-Analysis-System" target="_blank" class="project-github-btn">
+                                <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                                GitHub 源码
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <ul>
+                                <li><strong>姿态解算与去噪</strong>：基于 C++ 与 Python 实现 9 轴 IMU 数据的 Butterworth 低通滤波降噪，并使用 Mahony AHRS 姿态融合算法结合校准矩阵，动态解算出高精度的解剖学欧拉角与四元数。</li>
+                                <li><strong>步态事件自适应识别</strong>：设计并实现了基于滚动标准差和波峰提取的自适应阈值步态检测算法，可识别 Heel-Strike、Toe-Off 关键事件并进行步态参数（步频、步速、双支撑相占比）统计，集成转身动作防误判算子。</li>
+                                <li><strong>足底压力分类模型</strong>：基于 PyTorch 搭建了用于足底压力灰度图分类 of 2D CNN 分类网络，通过自定义 DataLoader 进行数据增强与 Kaiming 初始化，实现扁平足等异常足型的自动识别；并实现了层特征图的可视化引擎。</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="project-actions">
-                        <button class="project-toggle-btn">展开详情</button>
-                        <a href="https://github.com/1357570890/Comprehensive-Gait-Analysis-System" target="_blank" class="project-github-btn">
-                            <svg class="github-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                            GitHub 源码
-                        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Online Resume Section -->
+    <section id="online-resume" class="section">
+        <div class="container">
+            <h2 class="section-title text-center">在线简历</h2>
+            <p class="section-subtitle-desc text-center">这是我的个人简历网页版。您也可以直接下载我的 PDF 格式简历。</p>
+            <div class="section-divider"></div>
+            
+            <div class="resume-actions-container text-center" style="margin-bottom: 30px;">
+                <a href="assets/resume.pdf" class="btn btn-primary" download style="display: inline-flex; align-items: center;">
+                    <svg class="download-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" style="margin-right: 8px;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                    下载 PDF 格式简历
+                </a>
+            </div>
+
+            <div class="resume-web-paper">
+                <!-- Header -->
+                <div class="resume-web-header">
+                    <div class="resume-header-info">
+                        <h3 class="resume-name">张颢震</h3>
+                        <p class="resume-job-title">机器人与控制算法工程师</p>
+                        <p class="resume-meta">
+                            <strong>电话：</strong>183-9101-5680 &nbsp;|&nbsp; 
+                            <strong>邮箱：</strong><a href="mailto:haozhen.zhang@zut.edu.cn">haozhen.zhang@zut.edu.cn</a> &nbsp;|&nbsp; 
+                            <strong>期望城市：</strong>西安
+                        </p>
+                        <p class="resume-meta">
+                            <strong>GitHub：</strong><a href="https://github.com/1357570890" target="_blank">github.com/1357570890</a> &nbsp;|&nbsp;
+                            <strong>个人主页：</strong><a href="https://1357570890.github.io" target="_blank">1357570890.github.io</a>
+                        </p>
                     </div>
-                    <div class="project-details">
-                        <ul>
-                            <li><strong>姿态解算与去噪</strong>：基于 C++ 与 Python 实现 9 轴 IMU 数据的 Butterworth 低通滤波降噪，并使用 Mahony AHRS 姿态融合算法结合校准矩阵，动态解算出高精度的解剖学欧拉角与四元数。</li>
-                            <li><strong>步态事件自适应识别</strong>：设计并实现了基于滚动标准差和波峰提取的自适应阈值步态检测算法，可识别 Heel-Strike、Toe-Off 关键事件并进行步态参数（步频、步速、双支撑相占比）统计，集成转身动作防误判算子。</li>
-                            <li><strong>足底压力分类模型</strong>：基于 PyTorch 搭建了用于足底压力灰度图分类的 2D CNN 分类网络，通过自定义 DataLoader 进行数据增强与 Kaiming 初始化，实现扁平足等异常足型的自动识别；并实现了层特征图的可视化引擎。</li>
+                </div>
+
+                <!-- Education -->
+                <div class="resume-web-section">
+                    <h4 class="resume-section-title">教育背景</h4>
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <span class="inst-name"><strong>中原工学院</strong></span>
+                            <span class="inst-major">控制理论与控制工程 (硕士)</span>
+                            <span class="inst-date">2024.09 -- 2027.06 (预计毕业)</span>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>研究方向：</strong>多目标优化算法、群智能优化、机器人路径规划</li>
+                            <li><strong>核心课程：</strong>矩阵论 (<strong>95分</strong>)、随机过程 (<strong>89分</strong>)、计算智能 (<strong>87分</strong>)、神经网络及其应用 (<strong>87分</strong>)、现代控制理论、最优控制</li>
+                            <li><strong>学术表现：</strong>绩点优异，荣获 2024-2025 学年<strong>省级二等奖学金</strong></li>
+                        </ul>
+                    </div>
+                    <div class="resume-item" style="margin-top: 15px;">
+                        <div class="resume-item-header">
+                            <span class="inst-name"><strong>西安工程大学</strong></span>
+                            <span class="inst-major">机器人工程 (学士)</span>
+                            <span class="inst-date">2019.09 -- 2023.07</span>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>专业背景：</strong>机器人控制、嵌入式系统开发、运动学与动力学建模</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="resume-web-section">
+                    <h4 class="resume-section-title">专业技能</h4>
+                    <ul class="resume-bullet-list no-bullet">
+                        <li><strong>编程语言：</strong>熟练掌握 <strong>C/C++</strong> (具身智能底层、掌握面向对象编程与 STL 库)、<strong>Python</strong> (数据分析、AI 模型训练及运筹优化)；掌握 Java (Android App 研发)、JavaScript / HTML / CSS。</li>
+                        <li><strong>机器人与感知：</strong>熟练使用 <strong>ROS / ROS2</strong> 机器人操作系统；熟练掌握 <strong>3D 激光雷达点云处理与 3D SLAM 建图</strong>技术 (LOAM / LIO-SAM 等)；熟悉 Wi-Fi CSI 无线传感数据处理。</li>
+                        <li><strong>人工智能与视觉：</strong>熟练掌握边缘端端侧模型部署，精通 <strong>YOLO 核心目标检测</strong>、OpenCV 图像处理、MediaPipe 肢体与手势识别追踪。</li>
+                        <li><strong>算法与数学建模：</strong>精通<strong>运筹优化、启发式/群智能调度算法</strong> (NSGA-II 等算法重构与改进)，具备极强的复杂结构化数据解析与计算图调度建模实战能力。</li>
+                        <li><strong>硬件开发：</strong>熟练掌握 <strong>ESP32</strong> 等嵌入式平台开发、多传感器数据融合算法及 CAN / RS485 工业总线通信协议。</li>
+                    </ul>
+                </div>
+
+                <!-- Awards -->
+                <div class="resume-web-section">
+                    <h4 class="resume-section-title">竞赛与学术成果</h4>
+                    <table class="resume-awards-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>第二十二届中国研究生数学建模竞赛</strong></td>
+                                <td><strong>全国二等奖</strong></td>
+                                <td style="text-align: right; color: #718096;">2025.12</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>第二十届中国研究生电子设计竞赛</strong></td>
+                                <td><strong>省级一等奖 (华中一等奖)</strong></td>
+                                <td style="text-align: right; color: #718096;">2025.07</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>第七届中国研究生人工智能创新大赛</strong></td>
+                                <td><strong>全国三等奖</strong></td>
+                                <td style="text-align: right; color: #718096;">2025.10</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>第二十一届中国研究生数学建模竞赛</strong></td>
+                                <td><strong>全国三等奖</strong></td>
+                                <td style="text-align: right; color: #718096;">2024.12</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>“数智中原”河南省大学生电子设计竞赛</strong></td>
+                                <td><strong>省级二等奖</strong></td>
+                                <td style="text-align: right; color: #718096;">2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Experience -->
+                <div class="resume-web-section">
+                    <h4 class="resume-section-title">项目与工程实践经验</h4>
+                    
+                    <div class="resume-project-item">
+                        <div class="resume-project-header">
+                            <span class="project-name"><strong>陕西海砥装备科技有限公司 (西工大成果转化企业)</strong></span>
+                            <span class="project-role"><strong>ROS / 算法工程师</strong></span>
+                            <span class="project-date">2024.04 -- 2024.07</span>
+                        </div>
+                        <div class="project-desc-mini" style="color: #4a5568; font-style: italic; font-weight: 500; margin-top: 3px; font-size: 0.95em;">特种无人车与无人机自主导航及三维雷达建图系统研发</div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>底盘控制与数据订阅</strong>：基于 ROS 框架完成底盘控制链路设计与多传感器集成，利用 C++ 编写高性能 ROS 节点，实现 IMU、里程计及雷达点云等底层数据高频订阅与多线程解析。</li>
+                            <li><strong>点云建图与畸变补偿</strong>：负责 3D LiDAR 的标定与外参求解；在实车/机上部署调优 LOAM / LIO-SAM 算法，针对剧烈颠簸引入惯导融合算法进行运动畸变补偿。</li>
+                            <li><strong>滤波融合与工业级交付</strong>：在 Linux 下实现多套传感器数据融合滤波，解决动态响应滞后及多径干扰问题，成功实现厘米级高精度三维点云建图，技术成果已应用于核心特种装备中。</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-item" style="margin-top: 20px;">
+                        <div class="resume-project-header">
+                            <span class="project-name"><strong>“感语智契”多模态驱动智能陪伴机器狗研发</strong></span>
+                            <span class="project-role"><strong>研电赛省级一等奖 / 人工智能大赛全国三等奖</strong></span>
+                            <span class="project-date">2025.07 -- 2025.10</span>
+                        </div>
+                        <div class="project-desc-mini" style="color: #4a5568; font-style: italic; font-weight: 500; margin-top: 3px; font-size: 0.95em;">基于 AI 大模型与多模态交互驱动的四足机器人系统开发</div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>具身认知与大模型交互</strong>：基于 Python 接入大语言模型 (讯飞星火 API)，设计“ASR语音输入 -- 大模型语义理解 -- 结构化 JSON 指令提取 -- TTS语音反馈”闭环链路，赋予机器狗智能行为决策能力。</li>
+                            <li><strong>边缘视觉与多姿态识别</strong>：基于 YOLOfast 与 OpenCV 在边缘端部署目标检测，融合 MediaPipe 构建 high 帧率人脸检测、手势识别及人体姿态估计，实现手势控制与足球追踪。</li>
+                            <li><strong>跨平台集成与无线图传</strong>：基于 Java 开发配套 Android App，设计 TCP/UDP 协议链，实现前端大屏控制、参数调控与低延迟视频图传，成功打通“感知 -- 决策 -- 执行”全链路。</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-item" style="margin-top: 20px;">
+                        <div class="resume-project-header">
+                            <span class="project-name"><strong>通用神经网络处理器核内调度算法研究</strong></span>
+                            <span class="project-role"><strong>研究生数学建模全国二等奖</strong></span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <div class="project-desc-mini" style="color: #4a5568; font-style: italic; font-weight: 500; margin-top: 3px; font-size: 0.95em;">基于启发式与运筹优化的多维深度学习算子存储调度方案</div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>拓扑排序与生命周期分析</strong>：使用 Python 编写自动化解析脚本，对 JSON 格式复杂计算图进行拓扑排序，深入分析算子依赖关系及数据块的生命周期。</li>
+                            <li><strong>启发式算法与调度优化</strong>：结合运筹学优化理论，设计并实现基于优先级的调度算法 (Priority Explorer) 与数据溢出 (Spill) 成本动态优化算法，极大地抑制高频数据换入换出成本。</li>
+                            <li><strong>可视化验证与延迟优化</strong>：基于 Python GUI 与 Matplotlib 开发交互式调度验证器，直观输出内存碎片、执行时间、Spill 成本等多维指标，大幅降低整体计算延迟与 Cache Miss 率。</li>
                         </ul>
                     </div>
                 </div>
@@ -480,7 +661,7 @@
         </div>
     </section>
 
-    <!-- Interactive Lab Section -->
+<!-- Interactive Lab Section -->
     <section id="lab" class="section bg-light">
         <div class="container">
             <h2 class="section-title text-center">🔬 算法与控制系统在线实验室</h2>
