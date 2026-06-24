@@ -59,6 +59,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Online Resume Collapsible Toggle
+    const btnToggleResume = document.getElementById('btn-toggle-resume');
+    const resumeCollapsible = document.getElementById('resume-collapsible');
+    if (btnToggleResume && resumeCollapsible) {
+        btnToggleResume.addEventListener('click', () => {
+            const isExpanded = resumeCollapsible.classList.contains('expanded');
+            if (isExpanded) {
+                resumeCollapsible.classList.remove('expanded');
+                resumeCollapsible.classList.add('collapsed');
+                btnToggleResume.querySelector('.toggle-text').textContent = '在线预览网页版简历';
+                btnToggleResume.querySelector('.toggle-icon').textContent = '👁️';
+                
+                // Smooth scroll to the top of the resume section if collapsing
+                const offsetTop = document.getElementById('online-resume').offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            } else {
+                resumeCollapsible.classList.remove('collapsed');
+                resumeCollapsible.classList.add('expanded');
+                btnToggleResume.querySelector('.toggle-text').textContent = '收起网页版简历';
+                btnToggleResume.querySelector('.toggle-icon').textContent = '🙈';
+            }
+        });
+    }
+
     // Contact Form Real Submission using FormSubmit AJAX API
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');

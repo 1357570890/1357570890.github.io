@@ -1349,10 +1349,11 @@ footer p {
     padding: 0 !important; /* Override direct card padding so image spans full width */
     overflow: hidden;
     border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #edf2f7;
+    background: var(--bg-card);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--border-color);
 }
 
 .project-image-wrapper {
@@ -1360,8 +1361,8 @@ footer p {
     width: 100%;
     height: 180px;
     overflow: hidden;
-    background: #f7fafc;
-    border-bottom: 1px solid #edf2f7;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .project-image {
@@ -1384,54 +1385,70 @@ footer p {
 
 /* Online Resume Section Styling */
 #online-resume {
-    background: #f7fafc;
+    background-color: rgba(15, 23, 42, 0.4);
+}
+
+/* Collapsible wrapper styles */
+.resume-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+}
+
+.resume-collapsible.expanded {
+    max-height: 3500px;
+    opacity: 1;
 }
 
 .resume-web-paper {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    padding: 40px 50px;
+    background: rgba(15, 23, 42, 0.65);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(16px);
+    padding: 45px 50px;
     max-width: 900px;
     margin: 0 auto;
-    border: 1px solid #edf2f7;
-    color: #2d3748;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
     font-family: 'Inter', 'Outfit', "Helvetica Neue", Arial, sans-serif;
 }
 
 .resume-web-header {
-    border-bottom: 2px solid #1a365d;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 20px;
     margin-bottom: 25px;
 }
 
 .resume-name {
     font-size: 2.2rem;
-    color: #1a365d;
+    color: #ffffff;
     margin: 0 0 5px 0;
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .resume-job-title {
     font-size: 1.15rem;
-    color: #4a5568;
+    color: var(--accent-color);
     margin: 0 0 15px 0;
     font-weight: 600;
 }
 
 .resume-meta {
     font-size: 0.9rem;
-    color: #718096;
+    color: var(--text-secondary);
     margin: 5px 0;
 }
 
 .resume-meta a {
-    color: #1a365d;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
 .resume-meta a:hover {
+    color: var(--accent-color);
     text-decoration: underline;
 }
 
@@ -1441,8 +1458,8 @@ footer p {
 
 .resume-section-title {
     font-size: 1.25rem;
-    color: #1a365d;
-    border-left: 4px solid #1a365d;
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
     padding-left: 12px;
     margin: 0 0 15px 0;
     font-weight: 700;
@@ -1461,15 +1478,15 @@ footer p {
 
 .inst-name, .project-name {
     font-size: 1.05rem;
-    color: #1a202c;
+    color: #ffffff;
 }
 
 .inst-major, .project-role {
-    color: #4a5568;
+    color: var(--text-secondary);
 }
 
 .inst-date, .project-date {
-    color: #718096;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -1478,7 +1495,7 @@ footer p {
     padding-left: 20px;
     font-size: 0.92rem;
     line-height: 1.6;
-    color: #4a5568;
+    color: var(--text-secondary);
 }
 
 .resume-bullet-list li {
@@ -1498,16 +1515,20 @@ footer p {
 
 .resume-bullet-list.no-bullet li::before {
     content: "•";
-    color: #1a365d;
+    color: var(--primary-color);
     position: absolute;
     left: 0;
     font-weight: bold;
 }
 
+.resume-awards-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
 .resume-awards-table td {
     padding: 8px 0;
     font-size: 0.92rem;
-    color: #4a5568;
+    color: var(--text-secondary) !important;
 }
 
 @media (max-width: 768px) {

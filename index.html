@@ -200,7 +200,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Wi-Fi CSI 无线感知数据滤波与处理</span>
+                                <span class="skill-name">多源传感器数据融合与时序信号处理 (滤波/去噪)</span>
                                 <span class="skill-percentage">熟练</span>
                             </div>
                             <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
@@ -228,7 +228,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">边缘端端侧模型部署推理 (ESP32/香橙派/香橙派香橙派)</span>
+                                <span class="skill-name">边缘端与嵌入式 AI 模型部署推理 (ESP32 / Orange Pi / Jetson)</span>
                                 <span class="skill-percentage">熟练</span>
                             </div>
                             <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
@@ -359,7 +359,7 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="assets/robot_dog_real.jpg" alt="感语智契智能陪伴机器狗" class="project-image">
+                        <img src="assets/companion_dog_interaction.jpg" alt="感语智契智能陪伴机器狗" class="project-image">
                     </div>
                     <div class="project-card-content">
                         <div class="project-header">
@@ -397,7 +397,7 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="assets/memory_usage_analysis.png" alt="NPU核内算子调度优化" class="project-image">
+                        <img src="assets/npu_scheduler_flowchart.png" alt="NPU核内算子调度优化" class="project-image">
                     </div>
                     <div class="project-card-content">
                         <div class="project-header">
@@ -434,7 +434,7 @@
                 <!-- Project 4 -->
                 <div class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="assets/wifi_csi_real.png" alt="Wi-Fi信道状态跌倒实时监护" class="project-image">
+                        <img src="assets/wifi_csi_real_test.jpg" alt="Wi-Fi信道状态跌倒实时监护" class="project-image">
                     </div>
                     <div class="project-card-content">
                         <div class="project-header">
@@ -518,64 +518,69 @@
                     <svg class="download-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" style="margin-right: 8px;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
                     下载 PDF 格式简历
                 </a>
+                <button id="btn-toggle-resume" class="btn btn-secondary" style="display: inline-flex; align-items: center; margin-left: 15px;">
+                    <span class="toggle-icon" style="margin-right: 8px;">👁️</span>
+                    <span class="toggle-text">在线预览网页版简历</span>
+                </button>
             </div>
 
-            <div class="resume-web-paper">
-                <!-- Header -->
-                <div class="resume-web-header">
-                    <div class="resume-header-info">
-                        <h3 class="resume-name">张颢震</h3>
-                        <p class="resume-job-title">机器人与控制算法工程师</p>
-                        <p class="resume-meta">
-                            <strong>电话：</strong>183-9101-5680 &nbsp;|&nbsp; 
-                            <strong>邮箱：</strong><a href="mailto:haozhen.zhang@zut.edu.cn">haozhen.zhang@zut.edu.cn</a> &nbsp;|&nbsp; 
-                            <strong>期望城市：</strong>西安
-                        </p>
-                        <p class="resume-meta">
-                            <strong>GitHub：</strong><a href="https://github.com/1357570890" target="_blank">github.com/1357570890</a> &nbsp;|&nbsp;
-                            <strong>个人主页：</strong><a href="https://1357570890.github.io" target="_blank">1357570890.github.io</a>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="resume-web-section">
-                    <h4 class="resume-section-title">教育背景</h4>
-                    <div class="resume-item">
-                        <div class="resume-item-header">
-                            <span class="inst-name"><strong>中原工学院</strong></span>
-                            <span class="inst-major">控制理论与控制工程 (硕士)</span>
-                            <span class="inst-date">2024.09 -- 2027.06 (预计毕业)</span>
+            <div id="resume-collapsible" class="resume-collapsible collapsed">
+                <div class="resume-web-paper">
+                    <!-- Header -->
+                    <div class="resume-web-header">
+                        <div class="resume-header-info">
+                            <h3 class="resume-name">张颢震</h3>
+                            <p class="resume-job-title">机器人与控制算法工程师</p>
+                            <p class="resume-meta">
+                                <strong>电话：</strong>183-9101-5680 &nbsp;|&nbsp; 
+                                <strong>邮箱：</strong><a href="mailto:haozhen.zhang@zut.edu.cn">haozhen.zhang@zut.edu.cn</a> &nbsp;|&nbsp; 
+                                <strong>期望城市：</strong>西安
+                            </p>
+                            <p class="resume-meta">
+                                <strong>GitHub：</strong><a href="https://github.com/1357570890" target="_blank">github.com/1357570890</a> &nbsp;|&nbsp;
+                                <strong>个人主页：</strong><a href="https://1357570890.github.io" target="_blank">1357570890.github.io</a>
+                            </p>
                         </div>
-                        <ul class="resume-bullet-list">
-                            <li><strong>研究方向：</strong>多目标优化算法、群智能优化、机器人路径规划</li>
-                            <li><strong>核心课程：</strong>矩阵论 (<strong>95分</strong>)、随机过程 (<strong>89分</strong>)、计算智能 (<strong>87分</strong>)、神经网络及其应用 (<strong>87分</strong>)、现代控制理论、最优控制</li>
-                            <li><strong>学术表现：</strong>绩点优异，荣获 2024-2025 学年<strong>省级二等奖学金</strong></li>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="resume-web-section">
+                        <h4 class="resume-section-title">教育背景</h4>
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="inst-name"><strong>中原工学院</strong></span>
+                                <span class="inst-major">控制理论与控制工程 (硕士)</span>
+                                <span class="inst-date">2024.09 -- 2027.06 (预计毕业)</span>
+                            </div>
+                            <ul class="resume-bullet-list">
+                                <li><strong>研究方向：</strong>多目标优化算法、群智能优化、机器人路径规划</li>
+                                <li><strong>核心课程：</strong>矩阵论 (<strong>95分</strong>)、随机过程 (<strong>89分</strong>)、计算智能 (<strong>87分</strong>)、神经网络及其应用 (<strong>87分</strong>)、现代控制理论、最优控制</li>
+                                <li><strong>学术表现：</strong>绩点优异，荣获 2024-2025 学年<strong>省级二等奖学金</strong></li>
+                            </ul>
+                        </div>
+                        <div class="resume-item" style="margin-top: 15px;">
+                            <div class="resume-item-header">
+                                <span class="inst-name"><strong>西安工程大学</strong></span>
+                                <span class="inst-major">机器人工程 (学士)</span>
+                                <span class="inst-date">2019.09 -- 2023.07</span>
+                            </div>
+                            <ul class="resume-bullet-list">
+                                <li><strong>专业背景：</strong>机器人控制、嵌入式系统开发、运动学与动力学建模</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="resume-web-section">
+                        <h4 class="resume-section-title">专业技能</h4>
+                        <ul class="resume-bullet-list no-bullet">
+                            <li><strong>编程语言：</strong>熟练掌握 <strong>C/C++</strong> (具身智能底层、掌握面向对象编程与 STL 库)、<strong>Python</strong> (数据分析、AI 模型训练及运筹优化)；掌握 Java (Android App 研发)、JavaScript / HTML / CSS。</li>
+                            <li><strong>机器人与感知：</strong>熟练使用 <strong>ROS / ROS2</strong> 机器人操作系统；熟练掌握 <strong>3D 激光雷达点云处理与 3D SLAM 建图</strong>技术 (LOAM / LIO-SAM 等)；熟练掌握多源传感器数据融合与时序信号处理算法 (Kalman 滤波/去噪等)。</li>
+                            <li><strong>人工智能与视觉：</strong>熟练掌握边缘端与嵌入式 AI 模型部署推理 (ESP32/Orange Pi/Jetson 等)，精通 <strong>YOLO 核心目标检测</strong>、OpenCV 图像处理、MediaPipe 肢体与手势识别追踪。</li>
+                            <li><strong>算法与数学建模：</strong>精通<strong>运筹优化、启发式/群智能调度算法</strong> (NSGA-II 等算法重构与改进)，具备极强的复杂结构化数据解析与计算图调度建模实战能力。</li>
+                            <li><strong>硬件开发：</strong>熟练掌握 <strong>ESP32</strong> 等嵌入式平台开发、多传感器数据融合算法及 CAN / RS485 工业总线通信协议。</li>
                         </ul>
                     </div>
-                    <div class="resume-item" style="margin-top: 15px;">
-                        <div class="resume-item-header">
-                            <span class="inst-name"><strong>西安工程大学</strong></span>
-                            <span class="inst-major">机器人工程 (学士)</span>
-                            <span class="inst-date">2019.09 -- 2023.07</span>
-                        </div>
-                        <ul class="resume-bullet-list">
-                            <li><strong>专业背景：</strong>机器人控制、嵌入式系统开发、运动学与动力学建模</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Skills -->
-                <div class="resume-web-section">
-                    <h4 class="resume-section-title">专业技能</h4>
-                    <ul class="resume-bullet-list no-bullet">
-                        <li><strong>编程语言：</strong>熟练掌握 <strong>C/C++</strong> (具身智能底层、掌握面向对象编程与 STL 库)、<strong>Python</strong> (数据分析、AI 模型训练及运筹优化)；掌握 Java (Android App 研发)、JavaScript / HTML / CSS。</li>
-                        <li><strong>机器人与感知：</strong>熟练使用 <strong>ROS / ROS2</strong> 机器人操作系统；熟练掌握 <strong>3D 激光雷达点云处理与 3D SLAM 建图</strong>技术 (LOAM / LIO-SAM 等)；熟悉 Wi-Fi CSI 无线传感数据处理。</li>
-                        <li><strong>人工智能与视觉：</strong>熟练掌握边缘端端侧模型部署，精通 <strong>YOLO 核心目标检测</strong>、OpenCV 图像处理、MediaPipe 肢体与手势识别追踪。</li>
-                        <li><strong>算法与数学建模：</strong>精通<strong>运筹优化、启发式/群智能调度算法</strong> (NSGA-II 等算法重构与改进)，具备极强的复杂结构化数据解析与计算图调度建模实战能力。</li>
-                        <li><strong>硬件开发：</strong>熟练掌握 <strong>ESP32</strong> 等嵌入式平台开发、多传感器数据融合算法及 CAN / RS485 工业总线通信协议。</li>
-                    </ul>
-                </div>
 
                 <!-- Awards -->
                 <div class="resume-web-section">
@@ -657,6 +662,7 @@
                         </ul>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>
