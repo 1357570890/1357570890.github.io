@@ -902,4 +902,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==================== INITIALIZATION TRIGGER ====================
     // Run the active tab initially
     initRRT();
+
+    // ==================== EASTER EGG (DEVELOPER CONSOLE) ====================
+    console.log(
+        "%c" + 
+        "       __      _\n" +
+        "     o'')}____//\n" +
+        "      `_/      )\n" +
+        "      (_(_/-(_/\n",
+        "color: #06b6d4; font-weight: bold; font-family: monospace;"
+    );
+    console.log(
+        "%c[张颢震 | 机器人与控制算法工程师 个人主页控制台]\n" +
+        "%c>>> 检测到技术面面试官/HR访问。欢迎查看我手写的原生算法仿真！\n" +
+        ">>> 本主页完全使用原生 JavaScript 构建，算法实验室核心功能：\n" +
+        "    1. RRT* 路径搜索树（包含近邻 Rewire 路径渐近最优重构）\n" +
+        "    2. 一维垂直高度 PID 稳定控制器控制环（包含积分抗饱和 anti-windup 限幅）\n" +
+        "    3. 3D 旋转矩阵激光雷达点云变换投影（直接基于欧拉角旋转算子矩阵相乘）\n" +
+        "\n" +
+        ">>> 我的学术与技术标签：\n" +
+        "    - 矩阵论考核成绩: 95分 | 随机过程: 89分 | 省级二等学业奖学金\n" +
+        "    - 核心专业背景: C++ / Python / ROS / 3D LiDAR SLAM建图 / YOLO视觉检测\n" +
+        "    - 联系方式: 电话/微信 183-9101-5680 | 邮箱 1357570890@qq.com\n" +
+        "    - 期望城市: 西安 (寻求军工研究所/自动驾驶/机器人核心算法岗)\n" +
+        "\n" +
+        "如果您对我的底层数学或代码变现能力感兴趣，欢迎随时联系我！",
+        "color: #3b82f6; font-size: 14px; font-weight: bold;",
+        "color: #94a3b8; font-size: 12px;"
+    );
 });
