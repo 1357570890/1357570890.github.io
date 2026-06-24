@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Contact Form Mocking
+    // Contact Form Real Submission using FormSubmit AJAX API
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
     if (contactForm && formMessage) {
@@ -67,11 +67,48 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
             formMessage.style.display = 'block';
-            formMessage.className = 'form-message success';
-            formMessage.textContent = `感谢您的消息，${name}！您的留言已模拟发送成功，我将尽快通过您的联系方式（${email}）与您取得联系！`;
-            contactForm.reset();
-            setTimeout(() => { formMessage.style.display = 'none'; }, 6000);
+            formMessage.className = 'form-message';
+            formMessage.style.backgroundColor = 'rgba(59, 130, 246, 0.15)';
+            formMessage.style.color = '#3b82f6';
+            formMessage.style.borderColor = 'rgba(59, 130, 246, 0.25)';
+            formMessage.textContent = '正在发送您的消息，请稍候...';
+
+            fetch('https://formsubmit.co/ajax/1357570890@qq.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Email: email,
+                    Message: message,
+                    _subject: `来自个人简历主页的留言 - ${name}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === "true" || data.success === true) {
+                    formMessage.className = 'form-message success';
+                    formMessage.style.backgroundColor = '';
+                    formMessage.style.color = '';
+                    formMessage.style.borderColor = '';
+                    formMessage.textContent = `感谢您的留言，${name}！您的消息已成功投递，我将尽快通过 ${email} 与您取得联系！`;
+                    contactForm.reset();
+                } else {
+                    throw new Error('发送失败');
+                }
+            })
+            .catch(error => {
+                formMessage.className = 'form-message';
+                formMessage.style.backgroundColor = 'rgba(239, 68, 68, 0.15)';
+                formMessage.style.color = '#ef4444';
+                formMessage.style.borderColor = 'rgba(239, 68, 68, 0.25)';
+                formMessage.textContent = '抱歉，邮件发送失败，网络连接异常。请直接通过本页邮箱或电话与我取得联系。';
+            });
         });
     }
 
@@ -108,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetTab === 'rrt-tab') initRRT();
             if (targetTab === 'pid-tab') initPID();
             if (targetTab === 'lidar-tab') initLIDAR();
+            if (targetTab === 'csi-tab') initCSI();
         });
     });
 
@@ -888,6 +926,208 @@ document.addEventListener('DOMContentLoaded', () => {
         drawLidar();
         
         lidarAnimationId = requestAnimationFrame(lidarAutoRotateLoop);
+    }
+
+    // ==================== WI-FI CSI SIGNAL FILTERING SIMULATION ====================
+    let csiCanvas, csiCtx;
+    let csiRawData = [];
+    let csiKalmanData = [];
+    let csiMAData = [];
+    let csiTime = 0;
+    let csiAnimationId = null;
+    
+    // Sim parameters
+    let csiQSlider, csiRSlider, csiWSlider;
+    let csiQDisplay, csiRDisplay, csiWDisplay;
+    let csiFilterMode = 'kalman'; // 'kalman' or 'ma'
+    let csiPerturbTicks = 0;
+    
+    // Kalman variables
+    let kX = 180; // Estimated state (amplitude)
+    let kP = 1.0; // Estimate covariance
+
+    function initCSI() {
+        csiCanvas = document.getElementById('csi-canvas');
+        if (!csiCanvas) return;
+        csiCtx = csiCanvas.getContext('2d');
+        
+        csiQSlider = document.getElementById('csi-q');
+        csiRSlider = document.getElementById('csi-r');
+        csiWSlider = document.getElementById('csi-w');
+        
+        csiQDisplay = document.getElementById('csi-q-val');
+        csiRDisplay = document.getElementById('csi-r-val');
+        csiWDisplay = document.getElementById('csi-w-val');
+        
+        // Reset buffers
+        csiRawData = Array(150).fill(180);
+        csiKalmanData = Array(150).fill(180);
+        csiMAData = Array(150).fill(180);
+        csiTime = 0;
+        kX = 180;
+        kP = 1.0;
+        csiPerturbTicks = 0;
+        
+        if (csiAnimationId) cancelAnimationFrame(csiAnimationId);
+        
+        csiLoop();
+    }
+
+    function csiLoop() {
+        // Read parameters
+        const q = parseFloat(csiQSlider.value);
+        const r = parseFloat(csiRSlider.value);
+        const w = parseInt(csiWSlider.value);
+        
+        csiQDisplay.textContent = q.toFixed(3);
+        csiRDisplay.textContent = r.toFixed(2);
+        csiWDisplay.textContent = w;
+        
+        // Generate raw noisy signal
+        csiTime += 0.05;
+        let baseVal = 180 + Math.sin(csiTime * 0.8) * 35 + Math.cos(csiTime * 0.3) * 15;
+        
+        // Simulating human fall spike: double peak anomaly
+        if (csiPerturbTicks > 0) {
+            const t = 40 - csiPerturbTicks;
+            const spike = Math.sin(t * 0.2) * 80 + Math.sin(t * 0.5) * 30;
+            baseVal += Math.abs(spike);
+            csiPerturbTicks--;
+        }
+        
+        const noise = (Math.random() - 0.5) * 30 + (Math.random() < 0.04 ? (Math.random() - 0.5) * 70 : 0); // Noise + outliers
+        const measurement = baseVal + noise;
+        
+        csiRawData.push(measurement);
+        if (csiRawData.length > 150) csiRawData.shift();
+        
+        // --- 1. 1D Kalman Filter Update ---
+        const x_pred = kX;
+        const p_pred = kP + q;
+        const kGain = p_pred / (p_pred + r);
+        kX = x_pred + kGain * (measurement - x_pred);
+        kP = (1 - kGain) * p_pred;
+        
+        csiKalmanData.push(kX);
+        if (csiKalmanData.length > 150) csiKalmanData.shift();
+        
+        // --- 2. Moving Average Filter Update ---
+        let maSum = 0;
+        const currentLength = csiRawData.length;
+        const windowSize = Math.min(w, currentLength);
+        for (let i = currentLength - windowSize; i < currentLength; i++) {
+            maSum += csiRawData[i];
+        }
+        const maVal = maSum / windowSize;
+        
+        csiMAData.push(maVal);
+        if (csiMAData.length > 150) csiMAData.shift();
+        
+        // Draw Frame
+        drawCSI();
+        
+        csiAnimationId = requestAnimationFrame(csiLoop);
+    }
+
+    function drawCSI() {
+        csiCtx.clearRect(0, 0, csiCanvas.width, csiCanvas.height);
+        
+        // Grid background
+        csiCtx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+        csiCtx.lineWidth = 1;
+        for (let i = 0; i < csiCanvas.width; i += 20) {
+            csiCtx.beginPath(); csiCtx.moveTo(i, 0); csiCtx.lineTo(i, csiCanvas.height); csiCtx.stroke();
+        }
+        for (let j = 0; j < csiCanvas.height; j += 20) {
+            csiCtx.beginPath(); csiCtx.moveTo(0, j); csiCtx.lineTo(csiCanvas.width, j); csiCtx.stroke();
+        }
+        
+        const step = csiCanvas.width / 150;
+        
+        // --- 1. Plot Raw Noisy Signal (Red) ---
+        csiCtx.strokeStyle = 'rgba(239, 68, 68, 0.35)';
+        csiCtx.lineWidth = 1.2;
+        csiCtx.beginPath();
+        for (let i = 0; i < csiRawData.length; i++) {
+            const lx = i * step;
+            const ly = csiRawData[i];
+            if (i === 0) csiCtx.moveTo(lx, ly); else csiCtx.lineTo(lx, ly);
+        }
+        csiCtx.stroke();
+        
+        // --- 2. Plot Filtered Signal ---
+        if (csiFilterMode === 'kalman') {
+            csiCtx.strokeStyle = '#10b981';
+            csiCtx.shadowColor = '#10b981';
+            csiCtx.shadowBlur = 6;
+            csiCtx.lineWidth = 2.5;
+            csiCtx.beginPath();
+            for (let i = 0; i < csiKalmanData.length; i++) {
+                const lx = i * step;
+                const ly = csiKalmanData[i];
+                if (i === 0) csiCtx.moveTo(lx, ly); else csiCtx.lineTo(lx, ly);
+            }
+            csiCtx.stroke();
+            csiCtx.shadowBlur = 0;
+        } else {
+            csiCtx.strokeStyle = '#f59e0b';
+            csiCtx.shadowColor = '#f59e0b';
+            csiCtx.shadowBlur = 6;
+            csiCtx.lineWidth = 2.5;
+            csiCtx.beginPath();
+            for (let i = 0; i < csiMAData.length; i++) {
+                const lx = i * step;
+                const ly = csiMAData[i];
+                if (i === 0) csiCtx.moveTo(lx, ly); else csiCtx.lineTo(lx, ly);
+            }
+            csiCtx.stroke();
+            csiCtx.shadowBlur = 0;
+        }
+        
+        // --- 3. Legend & HUD ---
+        csiCtx.font = '10px monospace';
+        csiCtx.fillStyle = 'rgba(239, 68, 68, 0.8)';
+        csiCtx.fillRect(15, 20, 15, 8);
+        csiCtx.fillText('原始采集 CSI 信号 (高频室内扰动与随机多径离群噪声)', 38, 27);
+        
+        if (csiFilterMode === 'kalman') {
+            csiCtx.fillStyle = '#10b981';
+            csiCtx.fillRect(15, 36, 15, 8);
+            csiCtx.fillText('卡尔曼一维实时估计信号 (Kalman Filtered)', 38, 43);
+        } else {
+            csiCtx.fillStyle = '#f59e0b';
+            csiCtx.fillRect(15, 36, 15, 8);
+            csiCtx.fillText('窗口加权滑动平均信号 (Moving Average Filtered)', 38, 43);
+        }
+        
+        csiCtx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        csiCtx.fillText(`[信号频段] Wi-Fi 5.8GHz 信道子载波振幅幅值 (Amplitude)`, 15, csiCanvas.height - 15);
+        
+        if (csiPerturbTicks > 0) {
+            csiCtx.fillStyle = '#ef4444';
+            csiCtx.fillText(`[跌倒事件识别] 检测到高瞬态幅值陡变 (动态模拟跌倒中...)`, 15, csiCanvas.height - 30);
+        }
+    }
+
+    const filterToggleBtn = document.getElementById('csi-filter-toggle');
+    if (filterToggleBtn) {
+        filterToggleBtn.addEventListener('click', () => {
+            if (csiFilterMode === 'kalman') {
+                csiFilterMode = 'ma';
+                filterToggleBtn.textContent = '使用中: 滑动平均滤波';
+            } else {
+                csiFilterMode = 'kalman';
+                filterToggleBtn.textContent = '使用中: 卡尔曼滤波';
+            }
+            drawCSI();
+        });
+    }
+
+    const csiPerturbBtn = document.getElementById('csi-perturb');
+    if (csiPerturbBtn) {
+        csiPerturbBtn.addEventListener('click', () => {
+            csiPerturbTicks = 40;
+        });
     }
 
     const lidarResetBtn = document.getElementById('lidar-reset');

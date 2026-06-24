@@ -443,6 +443,7 @@
                     <button class="lab-tab active" data-tab="rrt-tab">RRT* 路径规划器</button>
                     <button class="lab-tab" data-tab="pid-tab">PID 闭环稳定控制</button>
                     <button class="lab-tab" data-tab="lidar-tab">3D 矩阵点云投影</button>
+                    <button class="lab-tab" data-tab="csi-tab">Wi-Fi CSI 信号滤波</button>
                 </div>
 
                 <div class="lab-content">
@@ -538,6 +539,52 @@
                                 </p>
                                 <div class="control-buttons">
                                     <button id="lidar-reset" class="btn btn-secondary">重置透视视角</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CSI Tab -->
+                    <div class="lab-panel" id="csi-tab">
+                        <div class="panel-grid">
+                            <div class="canvas-wrapper">
+                                <canvas id="csi-canvas" width="550" height="350"></canvas>
+                            </div>
+                            <div class="panel-controls">
+                                <h3>Wi-Fi CSI 信道状态信息实时滤波算法仿真</h3>
+                                <p class="panel-explanation">
+                                    <strong>信号处理功底展示：</strong>模拟 Wi-Fi CSI 在室内人体定位与跌倒检测中的原始高噪信号采集。
+                                </p>
+                                <p class="panel-explanation">
+                                    您可以调节下方滑块，直观对比<strong>一维卡尔曼滤波 (Kalman Filter)</strong> 与<strong>滑动平均滤波 (Moving Average)</strong> 对高噪时序信号的降噪效果。
+                                </p>
+                                
+                                <div class="sliders">
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">卡尔曼过程噪声 Q (Process Noise)</span>
+                                            <span id="csi-q-val" class="slider-value">0.020</span>
+                                        </div>
+                                        <input type="range" id="csi-q" min="0.001" max="0.1" step="0.001" value="0.020">
+                                    </div>
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">卡尔曼测量噪声 R (Measurement Noise)</span>
+                                            <span id="csi-r-val" class="slider-value">0.50</span>
+                                        </div>
+                                        <input type="range" id="csi-r" min="0.05" max="2.0" step="0.05" value="0.50">
+                                    </div>
+                                    <div class="slider-group">
+                                        <div class="slider-labels">
+                                            <span class="slider-title">滑动平均窗口 Window Size</span>
+                                            <span id="csi-w-val" class="slider-value">10</span>
+                                        </div>
+                                        <input type="range" id="csi-w" min="2" max="30" step="1" value="10">
+                                    </div>
+                                </div>
+                                <div class="control-buttons">
+                                    <button id="csi-filter-toggle" class="btn btn-primary">使用中: 卡尔曼滤波</button>
+                                    <button id="csi-perturb" class="btn btn-secondary">模拟人体跌倒动态波形</button>
                                 </div>
                             </div>
                         </div>

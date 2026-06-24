@@ -37,7 +37,15 @@ Unlike typical static portfolios, this project contains three fully functional, 
   * **Perspective Projection**: Projects rotated coordinates $(x_{rot}, y_{rot}, z_{rot})$ onto the 2D viewport:
     $$x_{screen} = c_x + \frac{x_{rot} \cdot f}{z_{rot} + d}, \quad y_{screen} = c_y + \frac{y_{rot} \cdot f}{z_{rot} + d}$$
   * **Depth Intensity Rendering**: Simulates LIDAR intensity values by scaling point sizes and opacities inversely proportional to their relative depth coordinates ($z_{rot}$).
-* **Interactive Feature**: Drag with the mouse left-button on the canvas to manually rotate the 3D model.
+### 4. Wi-Fi CSI Signal Filtering (Kalman vs. Moving Average)
+* **Description**: A signal processing simulation modeling indoor Wi-Fi Channel State Information (CSI) noise removal for fall detection.
+* **Filter Formulations**:
+  * **1D Kalman Filter**: Recursively estimates the signal state using state prediction and measurement update equations:
+    $$\hat{x}_{k|k-1} = \hat{x}_{k-1|k-1}, \quad P_{k|k-1} = P_{k-1|k-1} + Q$$
+    $$K_k = \frac{P_{k|k-1}}{P_{k|k-1} + R}, \quad \hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k(z_k - \hat{x}_{k|k-1}), \quad P_{k|k} = (1 - K_k)P_{k|k-1}$$
+  * **Moving Average Filter**: Computes the mean amplitude over a sliding window $W$ of historical raw CSI samples:
+    $$x_{MA}(t) = \frac{1}{W} \sum_{i=0}^{W-1} x_{raw}(t - i)$$
+* **Interactive Feature**: Toggle between filters, tune process noise $Q$, measurement noise $R$, or window size $W$, and click "模拟人体跌倒动态波形" to inject a high-transient fall attenuation wave to see how the filters handle dynamic anomalies.
 
 ---
 
