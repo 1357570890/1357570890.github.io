@@ -801,8 +801,40 @@ li {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.project-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.project-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition-smooth);
+}
+
+.project-github-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.github-icon {
+    flex-shrink: 0;
+}
+
 .project-toggle-btn {
-    align-self: flex-start;
     background: none;
     border: none;
     color: var(--primary-color);
