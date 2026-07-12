@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>张颢震 | 机器人与控制算法工程师 个人主页</title>
-    <meta name="description" content="张颢震的个人主页。专注于机器人控制、3D SLAM建图、启发式调度算法与边缘端具身智能开发。中原工学院控制理论与控制工程硕士。">
+    <meta name="description" content="张颢震的个人主页。专注于机器人控制、3D SLAM建图、启发式调度算法与边缘端具身智能开发。河南电子科技大学（原中原工学院）控制理论与控制工程硕士。">
     <meta name="keywords" content="张颢震, 机器人工程师, 控制算法, 3D SLAM, C++, ROS, 具身智能, 个人简历, PID控制, RRT路径规划">
     
     <!-- Google Fonts -->
@@ -123,7 +123,7 @@
                     <div class="timeline-date">2024.09 - 2027.06 (预计毕业)</div>
                     <div class="timeline-content">
                         <div class="education-header">
-                            <h3 class="school-name">中原工学院</h3>
+                            <h3 class="school-name">河南电子科技大学（原中原工学院）</h3>
                             <span class="degree">控制理论与控制工程 (硕士)</span>
                         </div>
                         <p class="edu-details"><strong>研究方向：</strong>多目标优化算法、群智能优化、机器人路径规划</p>
@@ -161,6 +161,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr class="award-gold">
+                            <td class="award-name"><span class="badge badge-gold">电子</span> 第二十一届中国研究生电子设计竞赛</td>
+                            <td class="award-rank">华中分赛区团队一等奖 (省级一等奖)</td>
+                            <td class="award-date">2026.07</td>
+                        </tr>
                         <tr class="award-gold">
                             <td class="award-name"><span class="badge badge-gold">建模</span> 第二十二届中国研究生数学建模竞赛</td>
                             <td class="award-rank">全国二等奖</td>
@@ -438,7 +443,7 @@
                     </div>
                     <div class="project-card-content">
                         <div class="project-header">
-                            <span class="project-tag">电赛省级奖项 / 适老化应用</span>
+                            <span class="project-tag">研电赛省级一等奖 / 适老化应用</span>
                             <span class="project-date">2026</span>
                         </div>
                         <h3 class="project-title">“银发守望”基于 Wi-Fi 信道状态感知与边缘计算的老人实时监护系统</h3>
@@ -548,7 +553,7 @@
                         <h4 class="resume-section-title">教育背景</h4>
                         <div class="resume-item">
                             <div class="resume-item-header">
-                                <span class="inst-name"><strong>中原工学院</strong></span>
+                                <span class="inst-name"><strong>河南电子科技大学（原中原工学院）</strong></span>
                                 <span class="inst-major">控制理论与控制工程 (硕士)</span>
                                 <span class="inst-date">2024.09 -- 2027.06 (预计毕业)</span>
                             </div>
@@ -575,6 +580,11 @@
                     <h4 class="resume-section-title">竞赛与学术成果</h4>
                     <table class="resume-awards-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
                         <tbody>
+                            <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
+                                <td><strong>第二十一届中国研究生电子设计竞赛</strong></td>
+                                <td><strong>省级一等奖 (华中一等奖)</strong></td>
+                                <td style="text-align: right; color: #718096;">2026.07</td>
+                            </tr>
                             <tr style="border-bottom: 1px solid #edf2f7; height: 35px;">
                                 <td><strong>第二十二届中国研究生数学建模竞赛</strong></td>
                                 <td><strong>全国二等奖</strong></td>
@@ -631,6 +641,19 @@
                             <li><strong>底盘控制与运动规划</strong>：基于 ROS 框架开发底盘控制及多传感器通信链路，使用 C++ 编写节点实现高频数据的多线程解析；针对车辆阿克曼转向的运动学约束，引入 TEB 局部规划器并优化 Costmap 膨胀层参数，满足狭窄通道内的平滑避障需求。</li>
                             <li><strong>点云建图与畸变补偿</strong>：完成 3D LiDAR 与 IMU 的外参标定；针对车辆在非结构化地形行驶时产生的剧烈颠簸与位姿突变，部署 LIO-SAM 紧耦合算法，利用高频惯导数据完成雷达点云的运动畸变补偿。</li>
                             <li><strong>滤波融合与实车部署</strong>：在 Linux 环境下实现多传感器数据融合与滤波，完成局部场景下的厘米级三维点云实时建图；结合 3DVFH (三维向量场直方图) 算法，保障无 GNSS 信号环境下的稳定定位与安全导航，相关节点均已完成实车测试验证。</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-item" style="margin-top: 20px;">
+                        <div class="resume-project-header">
+                            <span class="project-name"><strong>“银发守望”基于 Wi-Fi CSI 与边缘计算的跌倒检测系统</strong></span>
+                            <span class="project-role"><strong>研电赛华中一等奖 (省级一等奖)</strong></span>
+                            <span class="project-date">2026.07</span>
+                        </div>
+                        <div class="project-desc-mini" style="color: #4a5568; font-style: italic; font-weight: 500; margin-top: 3px; font-size: 0.95em;">基于 WiFi 信道状态信息与时序深度学习的非接触式监护系统</div>
+                        <ul class="resume-bullet-list">
+                            <li><strong>信道数据采集与信号处理</strong>：基于 ESP32 采集高频 Wi-Fi CSI（信道状态信息）时序数据；设计巴特沃斯滤波器与主成分分析（PCA）算法对高维 CSI 信号进行降噪与降维，消除环境干扰。</li>
+                            <li><strong>模型训练与边缘全栈集成</strong>：在 Python 环境下训练 1D-CNN + LSTM 深度学习模型，实现高精度姿态分类与跌倒预警；部署 Windows Server 后端服务与 Web 监控大屏、手机端 App，实现秒级实时闭环报警。</li>
                         </ul>
                     </div>
 
