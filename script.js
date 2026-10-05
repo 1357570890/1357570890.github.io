@@ -59,7 +59,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Online Resume Collapsible Toggle
+    // Multi-version PDF resume selector
+    const downloadPdfBtn = document.getElementById('btn-download-pdf');
+    const downloadBtnLabel = document.getElementById('download-btn-label');
+    const versionChips = document.querySelectorAll('.resume-version-chip');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroBadge = document.querySelector('.hero-badge');
+
+    function applyTargetVersion(targetKey) {
+        versionChips.forEach(chip => {
+            if (chip.getAttribute('data-target') === targetKey) {
+                chip.classList.add('active');
+                if (downloadPdfBtn) {
+                    downloadPdfBtn.setAttribute('href', chip.getAttribute('data-file'));
+                }
+                if (downloadBtnLabel) {
+                    downloadBtnLabel.textContent = chip.getAttribute('data-label');
+                }
+            } else {
+                chip.classList.remove('active');
+            }
+        });
+
+        if (targetKey === 'general') {
+            if (heroSubtitle) heroSubtitle.textContent = '控制与智能算法研发工程师';
+            if (heroBadge) heroBadge.textContent = '寻求 算法研发 / 控制工程 / 智能系统 研发岗位';
+        } else if (targetKey === 'optimization') {
+            if (heroSubtitle) heroSubtitle.textContent = '算法与运筹优化工程师';
+            if (heroBadge) heroBadge.textContent = '寻求 算法 / 运筹优化 / 算力系统 研发岗位';
+        } else if (targetKey === 'soe') {
+            if (heroSubtitle) heroSubtitle.textContent = '控制工程与算法研发工程师';
+            if (heroBadge) heroBadge.textContent = '寻求 机器人 / 智能装备 / 控制算法 研发岗位';
+        } else if (targetKey === 'robotics') {
+            if (heroSubtitle) heroSubtitle.textContent = '机器人控制与导航算法工程师';
+            if (heroBadge) heroBadge.textContent = '寻求 机器人 / 控制算法 / 具身智能 研发岗位';
+        }
+    }
+
+    versionChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const targetKey = chip.getAttribute('data-target');
+            applyTargetVersion(targetKey);
+        });
+    });
+
+    // URL Query Parameter Adaptive Handler
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetParam = urlParams.get('target');
+        if (targetParam && ['robotics', 'optimization', 'soe', 'general'].includes(targetParam.toLowerCase())) {
+            applyTargetVersion(targetParam.toLowerCase());
+        }
+    } catch (e) {
+        // Fallback silently
+    }
+
+    // Resume collapsible
     const btnToggleResume = document.getElementById('btn-toggle-resume');
     const resumeCollapsible = document.getElementById('resume-collapsible');
     if (btnToggleResume && resumeCollapsible) {
@@ -71,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnToggleResume.querySelector('.toggle-text').textContent = '在线预览网页版简历';
                 btnToggleResume.querySelector('.toggle-icon').textContent = '👁️';
                 
-                // Smooth scroll to the top of the resume section if collapsing
                 const offsetTop = document.getElementById('online-resume').offsetTop - 80;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             } else {
@@ -83,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact Form Real Submission using FormSubmit AJAX API
+    // Contact form submit
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
     if (contactForm && formMessage) {
@@ -136,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Animating skill bars on load
+    // Skill bars animation
     const skillBars = document.querySelectorAll('.skill-bar-fill');
     const animateSkills = () => {
         skillBars.forEach(bar => {
@@ -151,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', animateSkills);
     animateSkills();
 
-    // ==================== LAB TAB SWITCHING ====================
+    // Lab tab switching
     const tabButtons = document.querySelectorAll('.lab-tab');
     const panels = document.querySelectorAll('.lab-panel');
     
@@ -165,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
             
-            // Trigger redraw or initialization for the active panel
             if (targetTab === 'rrt-tab') initRRT();
             if (targetTab === 'pid-tab') initPID();
             if (targetTab === 'lidar-tab') initLIDAR();
@@ -173,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================== RRT* PATH PLANNER ALGORITHM SIMULATION ====================
+    // RRT* Simulation
     let rrtCanvas, rrtCtx;
     let rrtNodes = [];
     let rrtObstacles = [];
@@ -181,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rrtGoal = { x: 500, y: 175 };
     let rrtGoalRadius = 15;
     let rrtStepSize = 20;
-    let rrtSearchRadius = 35; // RRT* Rewire radius
+    let rrtSearchRadius = 35;
     let rrtRunning = false;
     let rrtAnimationId = null;
     let isDrawingObstacle = false;
@@ -192,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!rrtCanvas) return;
         rrtCtx = rrtCanvas.getContext('2d');
         
-        // Setup initial default obstacles
         rrtObstacles = [
             { x: 180, y: 30, w: 40, h: 180 },
             { x: 300, y: 140, w: 45, h: 180 },
@@ -205,10 +257,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
         drawRRT();
         
-        // Mouse drawing for custom obstacles
         rrtCanvas.addEventListener('mousedown', startDrawingObstacle);
         rrtCanvas.addEventListener('mousemove', drawObstacleHandler);
         window.addEventListener('mouseup', stopDrawingObstacle);
+
+        rrtCanvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                e.preventDefault();
+                startDrawingObstacle({ clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+            }
+        }, { passive: false });
+        rrtCanvas.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) {
+                e.preventDefault();
+                drawObstacleHandler({ clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+            }
+        }, { passive: false });
+        window.addEventListener('touchend', stopDrawingObstacle);
     }
 
     function startDrawingObstacle(e) {
@@ -539,6 +604,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 pidTargetY = y;
             }
         });
+
+        // Listen to touch events to set target height on mobile
+        pidCanvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                e.preventDefault();
+                const rect = pidCanvas.getBoundingClientRect();
+                const y = (e.touches[0].clientY - rect.top) * (pidCanvas.height / rect.height);
+                if (y > 30 && y < 310) {
+                    pidTargetY = y;
+                }
+            }
+        }, { passive: false });
         
         pidLoop();
     }
